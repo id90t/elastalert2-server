@@ -9,5 +9,6 @@
 !config/config.json
 !config/elastalert.yaml
 !config/elastalert-test.yaml
+!rules
 !tsconfig.json
 !tsoa.json
