@@ -12,4 +12,4 @@ COPY rules /opt/elastalert/rules/
 
 RUN sed -i 's@${ELASTIC_PASSWORD}@'"$ELASTIC_PASSWORD"'@g' '/opt/elastalert/config.yaml'
 RUN sed -i 's@${ELASTIC_PASSWORD}@'"$ELASTIC_PASSWORD"'@g' 'config/config.json'
-RUN sed -i 's@${SLACK_WEBHOOK}@'"$SLACK_WEBHOOK"'@g' '/opt/elastalert/rules/*'
+RUN sed -i 's@${SLACK_WEBHOOK}@'"$SLACK_WEBHOOK"'@g' '/opt/elastalert/rules/*.yaml'
