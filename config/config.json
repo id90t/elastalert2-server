@@ -4,7 +4,7 @@
   "wsport": 3333,
   "elastalertPath": "/opt/elastalert",
   "verbose": false,
-  "es_debug": true,
+  "es_debug": false,
   "debug": true,
   "rulesPath": {
     "relative": true,
