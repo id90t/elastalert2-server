@@ -5,7 +5,7 @@
   "elastalertPath": "/opt/elastalert",
   "verbose": false,
   "es_debug": false,
-  "debug": true,
+  "debug": false,
   "rulesPath": {
     "relative": true,
     "path": "/rules"
