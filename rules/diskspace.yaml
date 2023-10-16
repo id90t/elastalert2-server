@@ -1,0 +1,39 @@
+# Alert when the rate of events exceeds a threshold
+
+# (Required)
+# Type of alert.
+# the frequency rule type alerts when num_events events occur with timeframe time
+type: frequency
+
+# (Required)
+# Index to search, wildcard supported
+index: ".monitoring-es-7-*"
+
+num_events: 1
+
+timestamp_field: timestamp
+
+filter:
+- range:
+    node_stats.fs.total.free_in_bytes:
+      from: 0
+      to: 15000000000
+
+timeframe:
+  minutes: 15
+run_every:
+  minutes : 15
+buffer_time:
+  minutes : 20
+realalert:
+  minutes: 1
+
+# (Required)
+# The alert is use when a match is found
+alert:
+- slack
+slack:
+slack_webhook_url: "${SLACK_WEBHOOK}"
+slack_username_override: "elastalert"
+slack_channel_override: "#elk-beta"
+slack_emoji_override: ":robot_face:"
