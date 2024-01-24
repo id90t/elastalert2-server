@@ -15,7 +15,7 @@
     "path": "/rule_templates"
   },
   "es_ssl": true,
-  "es_host": "beta-elasticsearch8-worker.service.id90.com",
+  "es_host": "${ENVIRONMENT}-elasticsearch8-worker.service.id90.com",
   "es_port": 443,
   "es_username": "elastic",
   "es_password": "${ELASTIC_PASSWORD}",

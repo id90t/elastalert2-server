@@ -7,13 +7,13 @@ type: flatline
 
 # (Required)
 # Index to search, wildcard supported
-index: logstash-webapp-beta-%Y.%m.%d*
+index: logstash-webapp-${ENVIRONMENT}-%Y.%m.%d*
 
 use_strftime_index: true
 use_count_query: true
 
 # (Required, frequency specific)
-threshold: 100
+threshold: 50
 
 # (Required, frequency specific)
 # num_events must occur within this amount of time to trigger an alert
@@ -34,5 +34,5 @@ alert:
 slack:
 slack_webhook_url: "${SLACK_WEBHOOK}"
 slack_username_override: "elastalert"
-slack_channel_override: "#elk-beta"
+slack_channel_override: "#elk-${ENVIRONMENT}"
 slack_emoji_override: ":robot_face:"

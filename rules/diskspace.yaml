@@ -35,5 +35,5 @@ alert:
 slack:
 slack_webhook_url: "${SLACK_WEBHOOK}"
 slack_username_override: "elastalert"
-slack_channel_override: "#elk-beta"
+slack_channel_override: "#elk-${ENVIRONMENT}"
 slack_emoji_override: ":robot_face:"

@@ -1,6 +1,6 @@
 # The elasticsearch hostname for metadata writeback
 # Note that every rule can have its own elasticsearch host
-es_host: beta-elasticsearch8-worker.service.id90.com
+es_host: ${ENVIRONMENT}-elasticsearch8-worker.service.id90.com
 
 # The elasticsearch port
 es_port: 443
