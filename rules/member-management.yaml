@@ -1,0 +1,40 @@
+# Alert when the rate of events exceeds a threshold
+
+# (Required)
+# Type of alert.
+# the frequency rule type alerts when num_events events occur with timeframe time
+type: any
+
+# (Required)
+# Index to search, wildcard supported
+index: logstash-member-management-api-${ENVIRONMENT}-%Y.%m.%d*
+
+use_strftime_index: true
+
+attach_related: true
+
+filter:
+- query:
+    query_string:
+      query: "message: error AND NOT message: 401 AND NOT message: 400  AND NOT message: 404 AND NOT message: CODE_NOT_FOUND AND NOT message: CODE_EXPIRED AND NOT message: undefined"
+
+run_every:
+  minutes: 15
+realalert:
+  minutes: 0
+
+aggregation:
+ minutes: 15
+
+# (Required)
+# The alert is use when a match is found
+alert:
+- slack
+alert_text: "{0}"
+alert_text_type: alert_text_only
+alert_text_args: ["message"]
+slack:
+slack_webhook_url: "${SLACK_WEBHOOK}"
+slack_username_override: "elastalert"
+slack_channel_override: "#elk-${ENVIRONMENT}"
+slack_emoji_override: ":robot_face:"
